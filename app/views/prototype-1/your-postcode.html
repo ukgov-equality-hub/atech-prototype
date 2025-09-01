@@ -1,0 +1,44 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What is your postcode? – Prototype 1 - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "/prototype-1/needs-require-assistance"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/prototype-1/check-answers" method="post">
+
+        {{ govukInput({
+          label: {
+            text: "What is your postcode?",
+            classes: "govuk-label--l",
+            isPageHeading: true
+          },
+          hint: {
+            text: "This will allow us to provide information that is relevant to where you live"
+          },
+          id: "prototype1__yourPostcode",
+          name: "prototype1__yourPostcode",
+          value: data['prototype1__yourPostcode']
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
