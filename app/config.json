@@ -1,0 +1,8 @@
+{
+  "serviceName": "ATech prototype",
+  "plugins": {
+    "govuk-frontend": {
+      "rebrand": true
+    }
+  }
+}

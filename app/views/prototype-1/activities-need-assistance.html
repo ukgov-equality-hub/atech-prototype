@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Which activities do you need assistance with? – Prototype 1 - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "/prototype-1/responding-on-behalf-of"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/prototype-1/your-age" method="post">
+
+        {{ govukCheckboxes({
+          name: "prototype1.activitiesNeedAssistance",
+          fieldset: {
+            legend: {
+              text: "Which activities do you need assistance with?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all that apply"
+          },
+        values: data['prototype1.activitiesNeedAssistance'],
+          items: [
+            {
+              value: "Cleaning",
+              text: "Cleaning"
+            },
+            {
+              value: "Cooking",
+              text: "Cooking"
+            },
+            {
+              value: "Transport",
+              text: "Transport"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

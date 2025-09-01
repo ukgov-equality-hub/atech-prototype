@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Assistive Technology Finder – {{ serviceName }}
+{% endblock %}
+
+{% block header %}
+  <!-- Blank header with no service name for the start page -->
+  {{ govukHeader() }}
+{% endblock %}
+
+{% block beforeContent %}
+
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "/"
+      },
+      {
+        text: "Assistive Technology Finder "
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Assistive Technology Finder
+      </h1>
+
+      <p>
+        Assistive technology can be high tech e.g. screenreaders or low-tech such as walking sticks.
+      </p>
+
+      <p>
+        You will be asked about your needs and given advice on how to access technology to help with a range of activities.
+      </p>
+
+      {{ govukButton({
+        text: "Start now",
+        href: "/prototype-1/responding-on-behalf-of",
+        isStartButton: true
+      }) }}
+
+    </div>
+  </div>
+
+{% endblock %}

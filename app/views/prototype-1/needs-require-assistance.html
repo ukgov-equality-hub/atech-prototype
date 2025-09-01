@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  What needs do you have that may require assistance? – Prototype 1 - {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "/prototype-1/your-age"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" action="/prototype-1/your-postcode" method="post">
+
+        {{ govukCheckboxes({
+          name: "prototype1__needsRequireAssistance",
+          fieldset: {
+            legend: {
+              text: "What needs do you have that may require assistance?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            text: "Select all that apply"
+          },
+          values: data['prototype1__needsRequireAssistance'],
+          items: [
+            {
+              value: "Hearing impairment",
+              text: "Hearing impairment"
+            },
+            {
+              value: "Mobility",
+              text: "Mobility"
+            },
+            {
+              value: "Visual impairment",
+              text: "Visual impairment"
+            }
+          ]
+        }) }}
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
