@@ -1,13 +1,13 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-  Which activities do you need assistance with? – Prototype 1 - {{ serviceName }}
+  What is your age? – Prototype 1 - {{ serviceName }}
 {% endblock %}
 
 {% block beforeContent %}
   {{ govukBackLink({
   text: "Back",
-  href: "/prototype-1/responding-on-behalf-of"
+  href: "/prototype-1/activities-need-assistance"
 }) }}
 {% endblock %}
 
@@ -16,10 +16,10 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/prototype-1/your-age" method="post">
+      <form class="form" action="/prototype-1/needs-require-assistance" method="post">
 
-        {{ govukCheckboxes({
-          name: "prototype1.activitiesNeedAssistance",
+        {{ govukRadios({
+          name: "prototype1__yourAge",
           fieldset: {
             legend: {
               text: "What is your age?",
@@ -27,36 +27,33 @@
               classes: "govuk-fieldset__legend--l"
             }
           },
-          hint: {
-            text: "Select all that apply"
-          },
-        values: data['prototype1.activitiesNeedAssistance'],
+          value: data['prototype1__yourAge'],
           items: [
             {
               value: "<18",
               text: "<18"
             },
- {
+            {
               value: "18-24",
               text: "18-24"
             },
-         {
+            {
               value: "25-30",
               text: "25-30"
             },
-{
+            {
               value: "30-40",
               text: "30-40"
             },
-         {
+            {
               value: "40-50",
               text: "40-50"
             },
-        {
+            {
               value: "50-64",
               text: "50-64"
             },
-        {
+            {
               value: "65+",
               text: "65+"
             }

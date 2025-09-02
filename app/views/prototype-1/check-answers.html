@@ -44,7 +44,7 @@
               text: "Which activities do you need assistance with?"
             },
             value: {
-              text: data['prototype1.activitiesNeedAssistance'].join(", ") if data['prototype1.activitiesNeedAssistance'] else "No activities selected"
+              text: data['prototype1__activitiesNeedAssistance'].join(", ") if data['prototype1__activitiesNeedAssistance'] else "No activities selected"
             },
             actions: {
               items: [
@@ -88,6 +88,24 @@
                   href: "/prototype-1/needs-require-assistance",
                   text: "Change",
                   visuallyHiddenText: "What needs do you have that may require assistance?"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Where are the activities you need help with taking place?"
+            },
+            value: {
+              text: data['prototype1__whereIssueTakingPlace'].join(", ") if data['prototype1__whereIssueTakingPlace'] else "No needs selected"
+            },
+            actions: {
+              items: [
+                {
+                  href: "/prototype-1/where-issue-taking-place",
+                  text: "Change",
+                  visuallyHiddenText: "Where are the activities you need help with taking place?"
                 }
               ]
             }
